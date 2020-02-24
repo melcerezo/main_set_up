@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cp ./atom-install ./docker_install ~/.local/bin
+
 ~/.local/bin/atom-install
 
 ~/.local/bin/docker_install
