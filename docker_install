@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# sets user variable to current user
+USER=$(whoami)
+
+# updates apt-get
+sudo apt-get update
+
+# gets necessary packages for docker
+sudo apt-get install \
+apt-transport-https \
+ca-certificates \
+curl \
+gnupg-agent \
+software-properties-common
+
+# not sure what this does
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# adds docker repository for docker
+sudo add-apt-repository \
+"deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) \
+stable"
+
+# installs docker ce and related
+sudo apt-get install docker-ce \
+docker-ce-cli \
+containerd.io
+
+# adds user to the group called docker
+sudo usermod -aG docker $USER
+
+# reboots so user changes take effect
+sudo reboot
