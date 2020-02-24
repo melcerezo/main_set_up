@@ -1,0 +1,7 @@
+#!/bin/bash
+
+~/.local/bin/atom-install
+
+~/.local/bin/docker_install
+
+
